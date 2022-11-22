@@ -15,6 +15,8 @@ document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
 document.getElementById("clear").addEventListener("click", function () {
   input.value = ""
   input.focus()
+  resultInput.value = ""
+  resultInput.classList.remove("error")
 })
 
 input.addEventListener("keydown", function (ev) {
@@ -35,8 +37,13 @@ input.addEventListener("keydown", function (ev) {
 document.getElementById("equal").addEventListener("click", calculate)
 
 function calculate () {
+  resultInput.value = "ERROR"
+  resultInput.classList.add("error")
+
+  // eval only shows the value if it was correct
   const result = eval(input.value)
   resultInput.value = result
+  resultInput.classList.remove("error")
 }
 
 document.getElementById("copyToClipboard").addEventListener("click", function (ev) {
@@ -57,12 +64,14 @@ document.getElementById("themeSwitcher").addEventListener("click", function () {
     root.style.setProperty("--border-color", "#aaa")
     root.style.setProperty("--font-color", "#212529")
     root.style.setProperty("--primary-color", "#0a7061")
+    root.style.setProperty("--error-color", "#f63c3c")
     main.dataset.theme = "light"
   } else {
     root.style.setProperty("--bg-color", "#212529")
     root.style.setProperty("--border-color", "#666")
     root.style.setProperty("--font-color", "#f1f5f9")
     root.style.setProperty("--primary-color", "#0ce7c6")
+    root.style.setProperty("--error-color", "#ff0043")
     main.dataset.theme = "dark"
   }
 })

@@ -24,9 +24,12 @@ input.addEventListener("keydown", function (ev) {
     return
   }
   if (ev.key === "Backspace") {
+    // -1 to get final element and delet
     input.value = input.value.slice(0, -1)
   }
   if (ev.key === "Enter") {
     calculate()
   }
 })
+
+document.getElementById("equal").addEventListener("click", calculate)

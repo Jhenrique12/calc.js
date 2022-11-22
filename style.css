@@ -98,6 +98,10 @@ input {
   height: 4.25rem;
   width: 6rem;
 }
+#copyToClipboard:hover {
+  border-color: #0a6759;
+  color: #0a6759;
+}
 
 .flex {
   display: flex;

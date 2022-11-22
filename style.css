@@ -119,3 +119,16 @@ input {
   border-color: var(--primary-color) !important;
   color: var(--primary-color) !important;
 }
+
+footer {
+  margin-left: 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
